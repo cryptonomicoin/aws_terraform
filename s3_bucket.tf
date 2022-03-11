@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "tf-matt-s3-bucket" {
 }
 
 resource "aws_s3_bucket_versioning" "tf-matt-versioning" {
-  bucket = aws_s3_bucket.tf-matt-s3-bucket
+  bucket = aws_s3_bucket.tf-matt-s3-bucket.id
   versioning_configuration {
     status = "Enabled"
   }
