@@ -15,3 +15,10 @@ resource "aws_s3_bucket" "tf-matt-s3-bucket" {
     Environment = "Dev"
   }
 }
+
+resource "aws_s3_bucket_versioning" "tf-matt-versioning" {
+  bucket = aws_s3_bucket.tf-matt-s3-bucket
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
