@@ -1,14 +1,5 @@
-terraform {
-  backend "s3" {
-    bucket = "sdmatt-tf-state"
-    key    = "sdmatt-tf-state/tf-state"
-    region = "us-east-1"
-  }
-}
-
-resource "aws_s3_bucket" "tf-matt-s3-bucket" {
-  bucket = "tf-matt-s3-bucket"
-  force_destroy = false
+resource "aws_s3_bucket" "tf-matt-s3-bucket-bad" {
+  bucket = "tf-matt-s3-bucket-bad"
 
   tags = {
     Name        = "My bucket"
@@ -17,7 +8,7 @@ resource "aws_s3_bucket" "tf-matt-s3-bucket" {
 }
 
 resource "aws_s3_bucket_versioning" "tf-matt-versioning" {
-  bucket = aws_s3_bucket.tf-matt-s3-bucket.id
+  bucket = aws_s3_bucket.tf-matt-s3-bucket-bad.id
   versioning_configuration {
     status = "Enabled"
   }
