@@ -8,7 +8,7 @@ terraform {
 
 resource "aws_s3_bucket" "tf-matt-s3-bucket" {
   bucket = "tf-matt-s3-bucket"
-  force_destroy = true
+  force_destroy = false
 
   tags = {
     Name        = "My bucket"
