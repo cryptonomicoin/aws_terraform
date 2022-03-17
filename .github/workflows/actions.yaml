@@ -1,0 +1,26 @@
+name: Provision AWS Resources
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  terraform_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: hashicorp/setup-terraform@v1
+    - name: terraform init
+      run: terraform init
+      env:
+        TF_ACTION_WORKING_DIR: '.'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCESS_KEY_ID }}        
+    - name: terraform validate
+      run: terraform validate
+    - name: terraform Apply
+      run: terraform apply -auto-approve
+      env:
+        TF_ACTION_WORKING_DIR: '.'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_ACCESS_KEY_ID }}
