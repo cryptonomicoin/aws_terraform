@@ -6,5 +6,6 @@ terraform {
   backend "s3" {
     bucket = "sdmatt-tf-state"
     region = "us-east-1"
+    key = "terraform/tfstate"
   }
 }
