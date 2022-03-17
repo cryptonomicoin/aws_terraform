@@ -20,5 +20,5 @@ jobs:
       run: terraform validate
     - name: terraform Apply
       run: terraform apply -auto-approve
-    - name: terraform output
-      run: terraform output
+    - name: variable output
+      run: env
