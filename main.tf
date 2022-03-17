@@ -5,6 +5,6 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "sdmatt-tf-state"
-    region = "eu-east-1"
+    region = "us-east-1"
   }
 }
